@@ -6,6 +6,28 @@ var rotations = {"#makery1" : "0 180 0", "#makery2" : "0 70 0", "#makery3" : "0 
 AFRAME.registerComponent('makery', {
   init: function () {
     goToPortal((currentPortalName.substring(7)) - 1);
+    var target1 = document.querySelector('#pos1');
+    target1.addEventListener('mouseleave', function (event) {
+      setTimeout(function(){
+        document.querySelector('#VRText').setAttribute('visible', false);
+        document.querySelector('#prompt3').setAttribute('visible', true);
+      }, 2000);
+    });
+    var target2 = document.querySelector('#pos2');
+    target2.addEventListener('mouseleave', function (event) {
+      setTimeout(function(){
+        document.querySelector('#scratchText').setAttribute('visible', false);
+        document.querySelector('#video1').setAttribute('visible', false);
+        document.querySelector('#prompt1').setAttribute('visible', true);
+      }, 2000);
+    });
+    var target3 = document.querySelector('#pos3');
+    target3.addEventListener('mouseleave', function (event) {
+      setTimeout(function(){
+        document.querySelector('#pythonText').setAttribute('visible', false);
+        document.querySelector('#prompt2').setAttribute('visible', true);
+      }, 2000);
+    });
   }
 });
 
@@ -141,25 +163,17 @@ function goToPortal(portal){
     document.querySelector('#pos1').classList.remove("link");
     document.querySelector('#pos2').classList.remove("link");
     document.querySelector('#pos3').classList.remove("link");
-    var box = document.querySelector("#cover");
-    box.setAttribute('position', "-0.162 -1.655 0.018");
-    box.setAttribute('rotation', "0 90 0");
-    box.setAttribute('scale', "5.370 0 2.56");
-    box.setAttribute('material', {
-      src: '#floorTexture1'
-    });
+    document.querySelector('#prompt1').setAttribute('visible', false);
+    document.querySelector('#prompt2').setAttribute('visible', false);
+    document.querySelector('#prompt3').setAttribute('visible', false);
     light.setAttribute('intensity', 1.3);
   }else if(portal === 1){
     document.querySelector('#pos1').classList.remove("link");
     document.querySelector('#pos2').classList.remove("link");
     document.querySelector('#pos3').classList.remove("link");
-    var box = document.querySelector("#cover");
-    box.setAttribute('position', "-5.134 -1.655 2.179");
-    box.setAttribute('rotation', "-3.037 -25.78 2.922");
-    box.setAttribute('scale', "5.370 0 2.56");
-    box.setAttribute('material', {
-      src: '#floorTexture2'
-    });
+    document.querySelector('#prompt1').setAttribute('visible', false);
+    document.querySelector('#prompt2').setAttribute('visible', false);
+    document.querySelector('#prompt3').setAttribute('visible', false);
     light.setAttribute('intensity', 1);    
   }else if(portal === 2){
     var newVid = document.querySelector("#scratch");
@@ -167,13 +181,9 @@ function goToPortal(portal){
     document.querySelector('#pos1').classList.add("link");
     document.querySelector('#pos2').classList.add("link");
     document.querySelector('#pos3').classList.add("link");
-    var box = document.querySelector("#cover");
-    box.setAttribute('position', "-5.138 -1.655 -2.029");
-    box.setAttribute('rotation', "0 177 0");
-    box.setAttribute('scale', "3.91 0 1.99");
-    box.setAttribute('material', {
-      src: '#floorTexture3'
-    });
+    document.querySelector('#prompt1').setAttribute('visible', true);
+    document.querySelector('#prompt2').setAttribute('visible', true);
+    document.querySelector('#prompt3').setAttribute('visible', true);
     light.setAttribute('intensity', 1);    
   }
   //portals[portal].classList.remove("link");
