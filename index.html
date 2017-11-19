@@ -20,27 +20,45 @@
       <div class="instructions">
         <h1>Welcome to The Makery!
         </h1>
-        <p>
+<!--         <p>
           This will be a brief introduction to the experience with explanations on how to use it and navigate around the room/get the most interaction out of it. 
           To start the experience the user will have to click the button below or anywhere on the screen to start the videos on mobile (security setting) and remove this text.
-        </p>
-        <div id="teleport">
+        </p> -->
+        <div id="intro">
           <h1>
-            Teleport
+          Firstly, a brief tutorial
+          </h1>
+          <h2>
+            If you have a VR headet, make sure to click the headset button.
+          </h2>
+        </div>
+        <div id="clicking">
+          <h1>
+          Clicking
+          </h1>
+          <p>
+            If using a VR headset, stare at object to click them using <b>gaze click</b>
+          </p>
+          
+        </div>
+        
+        <div id="teleport" style="display:none">
+          <h1>
+            Teleporting
           </h1>
           <p>
             Click on these teleports to transport to another location in the makery.
           </p>
-          <img src="https://matthrco.github.io/virtualreality/teleport.png" >
+          <img src="https://cdn.glitch.com/829d757a-cedc-425b-98eb-4ca03f0745f4%2Fteleport.PNG?1511016721547" >
         </div>
         
         <div id="Arrow" style = "display:none">
           
           <h1>
-            Insert Title
+            Interactive Objects
           </h1>
           <p>
-            Arrow below show interactive elements. Click below them for more...
+            Arrows show interactive elements. Click below them for more...
           </p>
 
           <h1>
@@ -50,17 +68,25 @@
             blah
           </h1>
         </div>
-        <div id="nextButton">
+        <div id="options">
+          <h2>
+            Click NEXT to continue tutorial or BEGIN to enter the Makery
+          </h2>
+          <div id="nextButton">
           <button class="start-button" onclick="myFunction();">
-          Next
+          NEXT
           </button>
         </div>
+        
+        </div>
+      
+        
         <div id = "beginButton" >
           <h2>
-          Click to begin.
+          Enter the Makery
         </h2>
         <button class="start-button" onclick="eventLstner();">
-          Click
+          BEGIN
         </button>
         </div>
         
@@ -87,9 +113,6 @@
         <video playsinline webkit-playsinline id="scratch" crossorigin="anonymous" muted loop src="https://matthrco.github.io/virtualreality/Scratch.mp4">
         </video>
         <img id="portalTexture" src="https://matthrco.github.io/virtualreality/portalTexture.png">
-        <img id="floorTexture1" src="https://matthrco.github.io/virtualreality/floor1.png">
-        <img id="floorTexture2" src="https://matthrco.github.io/virtualreality/floor2.png">
-        <img id="floorTexture3" src="https://matthrco.github.io/virtualreality/floor3.png">
         <img id="scratchTextTexture" src="https://matthrco.github.io/virtualreality/ScratchPopUp.png">
         <img id="VRTextTexture" src="https://matthrco.github.io/virtualreality/VRPopUp.png">
         <img id="pythonTextTexture" src="https://matthrco.github.io/virtualreality/PythonPopUp.png">
@@ -97,8 +120,7 @@
        
         
       </a-assets>
-      <a-videosphere id="vid" src="#makery1" rotation="0 180 0"></a-videosphere> 
-      <a-box visible="true" id="cover" position="0 -1.655 -0.557" scale="2 0 3.5"></a-box>
+      <a-videosphere id="vid" src="#makery1" rotation="0 180 0"></a-videosphere>
       <a-entity id="link1" class="link" portal="target: #vid; src: #makery1; position: 0 0 0; rotation: 0 90 0"></a-entity>
       <a-entity id="link2" class="link" portal="target: #vid; src: #makery2; position: -5 0 2.5; rotation: 0 320 0"></a-entity>
       <a-entity id="link3" class="link" portal="target: #vid; src: #makery3; position: -4.5 0 -2; rotation: 0 210 0"></a-entity>
@@ -120,27 +142,24 @@
 <!--   VR RIG     -->
       <a-cylinder id="pos1" position="1.4 -0.76 -6.65" opacity="0.0" scale="1 1 3.1" class="link"
                   event-set__enter="_event: mouseenter; _target: #VRText; visible: true"
-                  event-set__leave="_event: mouseleave; _target: #VRText; visible: false">
-        <a-cylinder id="VRText" height="1" material="side: back" geometry="openEnded: true" radius="1" color="white" position="-4.978 1.000 1.288" rotation="0 -38.732 0" scale="0.48 1 0.063" visible="false" src="#VRTextTexture"></a-cylinder>
+                  event-set__entera="_event: mouseenter; _target: #prompt3; visible: false">
+        <a-cylinder id="VRText" height="0.5" material="side: back" geometry="openEnded: true" radius="0.5" color="white" position="-4.978 0.581 1.288 " rotation="0 -38.732 0" scale="0.48 1 0.063" visible="false" src="#VRTextTexture"></a-cylinder>
       </a-cylinder>
 <!--    Scratch    -->
       <a-box id="pos2" position="-4.1 -1.2 1" opacity="0.0" scale="1 1 0.5" class="link" 
                   event-set__enter="_event: mouseenter; _target: #scratchText; visible: true"
                   event-set__enters="_event: mouseenter; _target: #video1; visible: true"
-                  event-set__leave="_event: mouseleave; _target: #scratchText; visible: false"
-                  event-set__leaves="_event: mouseleave; _target: #video1;  visible: false">
-       <a-cylinder id="scratchText" height="1" material="side: back" geometry="openEnded: true" radius="1" color="white" position="0.817 1.048 -2.966" rotation="0 209.47 0" scale="1 1 0.373" visible="false" src="#scratchTextTexture"></a-cylinder>
-        <a-video id="video1" visible="false" src="#scratch" width="16" height="9" rotation="0 180 0" position="-0.878 1.066 -3.8" scale="0.08 0.08 0.08"></a-video>
+                  event-set__entera="_event: mouseenter; _target: #prompt1; visible: false"
+                  >
+       <a-cylinder id="scratchText" height="0.5" material="side: back" geometry="openEnded: true" radius="0.5" color="white" position="0.336 1.048 -2.966" rotation="0 -174.75 0" scale="1 1 0.373" visible="false" src="#scratchTextTexture"></a-cylinder>
+        <a-video id="video1" visible="false" src="#scratch" width="8" height="5" rotation="0 180 0" position="-0.625 1.095 -3.8" scale="0.08 0.08 0.08"></a-video>
       </a-box>
       
 <!--    Python game    -->
       <a-box id="pos3" position="-6.4 -1.2 1" opacity="0.0" scale="1 1 0.5" class="link"
                   event-set__enter="_event: mouseenter; _target: #pythonText; visible: true"
-                  event-set__enters="_event: mouseenter; _target: #video2; visible: true"
-                  event-set__leave="_event: mouseleave; _target: #pythonText; visible: false"
-                  event-set__leaves="_event: mouseleave; _target: #video2; visible: false">
-        <a-cylinder id="pythonText" height="1" material="side: back" geometry="openEnded: true" radius="1" color="white" position="0.909 1.000 -4.417" rotation="0 142.15 0" scale="1 1 0.373" visible="false" src="#pythonTextTexture"></a-cylinder>
-        <a-video id="video2" visible="false" src="#makery1_dynamic" width="16" height="9" position="0 0 -2" scale="0.08 0.08 0.08"></a-video>
+                  event-set__entera="_event: mouseenter; _target: #prompt2; visible: false">
+        <a-cylinder id="pythonText" height="0.5" material="side: back" geometry="openEnded: true" radius="0.5" color="white" position="0.909 1.000 -4.417" rotation="0 142.15 0" scale="1 1 0.373" visible="false" src="#pythonTextTexture"></a-cylinder>
       </a-box>
       <!-- Camera + cursor. -->
       <a-entity id="camera" class="camera" rotation="0 90 0">
@@ -171,34 +190,26 @@
     
     <script>
     function myFunction() {
+    var clicking = document.getElementById("clicking")
     var x = document.getElementById("teleport");
     var y = document.getElementById("Arrow");
     var z = document.getElementById("beginButton");
     var a = document.getElementById("nextButton");
-    
-      
-    if (x.style.display === "none") {
+    var option = document.getElementById("options");
+    var intro = document.getElementById("intro");
+    if (clicking.style.display !== "none") {
+        clicking.style.display = "none";
         x.style.display = "block";
-    } else {
+        intro.style.display = "none"
+    }else if (x.style.display !== "none") {
         x.style.display = "none";
-    }
-      
-    if (y.style.display === "none") {
         y.style.display = "block";
-        
-    } else {
-        y.style.display = "none";
+    }else if (y.style.display !== "none") {
+        y.style.display = "none";   
+        option.style.display="none";
     }
-      
-//     if (y.style.display === "block") {
-//         y.style.display = "none";
-//         x.style.display = "none";
-//         z.style.display = "block";
-//     } else {
-//         y.style.display = "none";
-        
-//     }
-}
+
+};
     </script>
   </body>
 </html>
