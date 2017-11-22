@@ -8,25 +8,32 @@ AFRAME.registerComponent('makery', {
     goToPortal((currentPortalName.substring(7)) - 1);
     var target1 = document.querySelector('#pos1');
     target1.addEventListener('mouseleave', function (event) {
-      setTimeout(function(){
+      //setTimeout(function(){
         document.querySelector('#VRText').setAttribute('visible', false);
         document.querySelector('#prompt3').setAttribute('visible', true);
-      }, 2000);
+      //}, 2000);
     });
     var target2 = document.querySelector('#pos2');
     target2.addEventListener('mouseleave', function (event) {
-      setTimeout(function(){
+      //setTimeout(function(){
         document.querySelector('#scratchText').setAttribute('visible', false);
         document.querySelector('#video1').setAttribute('visible', false);
+        document.querySelector('#box').setAttribute('visible', false);
         document.querySelector('#prompt1').setAttribute('visible', true);
-      }, 2000);
+      //}, 2000);
     });
     var target3 = document.querySelector('#pos3');
+    target3.addEventListener('mouseenter', function (event) {
+      //setTimeout(function(){
+        document.querySelector('#pythonText').setAttribute('visible', true);
+        document.querySelector('#prompt2').setAttribute('visible', false);
+      //}, 2000);
+    });
     target3.addEventListener('mouseleave', function (event) {
-      setTimeout(function(){
+      //setTimeout(function(){
         document.querySelector('#pythonText').setAttribute('visible', false);
         document.querySelector('#prompt2').setAttribute('visible', true);
-      }, 2000);
+      //}, 2000);
     });
   }
 });
