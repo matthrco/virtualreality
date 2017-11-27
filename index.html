@@ -95,7 +95,10 @@
     <a-scene makery>
       <!-- Don't wait for the video to load, we're going to stream it. -->
       <a-assets>
-        <video playsinline webkit-playsinline id="makery1" crossorigin="anonymous" muted loop visible="true">
+        <video playsinline webkit-playsinline id="makery1" crossorigin="anonymous" muted loop>
+          <!-- Native HLS video source. -->
+          <source type="application/x-mpegurl"
+               src="https://matthrco.github.io/virtualreality/VP1Static.m3u8" />
           <!-- MP4 video source. -->
           <source type="video/mp4"
                src="https://matthrco.github.io/virtualreality/VP1Static.mp4" />
@@ -256,7 +259,6 @@
         y.style.display = "none";   
         option.style.display="none";
     }
-
 };
     </script>
   </body>
