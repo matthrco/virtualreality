@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>360&deg; Image Gallery</title>
-    <meta name="description" content="JavaScript - A-Frame School">
+    <title>The Makery Fareham</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
     <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
@@ -11,10 +10,8 @@
     <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
     <script src="/virtualreality/makery.js"></script>
-    
-  
-  <link rel="stylesheet" href="/virtualreality/css/main.css">
-    </head>
+    <link rel="stylesheet" href="/virtualreality/css/main.css">
+  </head>
   <body>
     
     <div id="p1" class="instructions-overlay">
@@ -30,7 +27,6 @@
           <h1>
           Firstly, a brief tutorial
           </h1>
-          
         </div>
         <div id="clicking" style="display:none">
           <h1>
@@ -40,7 +36,6 @@
             If using a VR headset, stare at object to click them using <b>gaze click</b>.
             Do this by moving the reticle (cursor) in the middle of the screen over a object and staring until it clicks
           </p>
-          
         </div>
         
         <div id="teleport" >
@@ -54,14 +49,12 @@
         </div>
         
         <div id="Arrow" style = "display:none">
-          
           <h1>
             Interactive Objects
           </h1>
           <p>
             Arrows show interactive elements. You can look below them to find out more.
           </p>
-
           <img src="https://cdn.glitch.com/f32b341b-0244-46c1-907f-87de7de60606%2FScreen%20Shot%202017-11-28%20at%2017.15.49.png?1511889386741">
         </div>
         <div id="options">
@@ -84,15 +77,15 @@
           <p>
             If you have a VR headset, make sure to click the headset button.
           </p>
-        <button class="start-button" onclick="eventLstner();">
+        <button class="start-button" onclick="eventLstner()">
           BEGIN
         </button>
         </div>
         
       </div>
     </div>
+    
     <a-scene makery>
-      <!-- Don't wait for the video to load, we're going to stream it. -->
       <a-assets>
         <video playsinline webkit-playsinline id="makery1" crossorigin="anonymous" muted loop>
           <!-- Native HLS video source. -->
@@ -134,174 +127,120 @@
           <source type="video/mp4"
                src="https://matthrco.github.io/virtualreality/VP2AllRobots.mp4" />
         </video>       
-        <video playsinline webkit-playsinline id="makery2_arm" crossorigin="anonymous" muted loop>
-          <!-- Native HLS video source. -->
+        <!--<video playsinline webkit-playsinline id="makery2_arm" crossorigin="anonymous" muted loop>
           <source type="application/x-mpegurl"
                src="https://matthrco.github.io/virtualreality/VP2Arm.m3u8" />
-          <!-- MP4 video source. -->
           <source type="video/mp4"
                src="https://matthrco.github.io/virtualreality/VP2Arm.mp4" />
         </video>       
         <video playsinline webkit-playsinline id="makery2_car" crossorigin="anonymous" muted loop>
-          <!-- Native HLS video source. -->
           <source type="application/x-mpegurl"
                src="https://matthrco.github.io/virtualreality/VP2Car.m3u8" />
-          <!-- MP4 video source. -->
           <source type="video/mp4"
                src="https://matthrco.github.io/virtualreality/VP2Car.mp4" />
         </video>       
         <video playsinline webkit-playsinline id="makery2_dog" crossorigin="anonymous" muted loop>
-          <!-- Native HLS video source. -->
           <source type="application/x-mpegurl"
                src="https://matthrco.github.io/virtualreality/VP2Dog.m3u8" />
-          <!-- MP4 video source. -->
           <source type="video/mp4"
                src="https://matthrco.github.io/virtualreality/VP2Dog.mp4" />
-        </video>
+        </video>-->
         <video playsinline webkit-playsinline id="scratch" crossorigin="anonymous" muted loop src="https://matthrco.github.io/virtualreality/Scratch.mp4">
         </video>
-        <img id="portalTexture" src="https://cdn.glitch.com/22121a03-bf71-4c6f-a5c5-9ec643d973cd%2Fcamera.png?1510842315098">
+        <img id="portalTexture" crossorigin="anonymous" src="https://matthrco.github.io/virtualreality/portalTexture.png">
       </a-assets>
-      <a-videosphere id="vid" src="#makery1" rotation="0 180 0"></a-videosphere>
+      <a-videosphere id="vid" src="#makery1" rotation="0 180 0" material="color: #000"></a-videosphere>
       <a-entity id="link1" class="link" portal="target: #vid; src: #makery1; position: 0 0 0; rotation: 0 90 0"></a-entity>
       <a-entity id="link2" class="link" portal="target: #vid; src: #makery2; position: -5 0 2.5; rotation: 0 320 0"></a-entity>
       <a-entity id="link3" class="link" portal="target: #vid; src: #makery3; position: -4.5 0 -2; rotation: 0 210 0"></a-entity>
-      <a-entity id="prompt1" prompt="position: -4.5 0 0" position="-4.266 -0.265 0">
-        <a-animation attribute="position" dur="800" from="-4.266 -0.265 0" to="-4.266 0 0" direction="alternate" repeat="indefinite"></a-animation>
-      </a-entity>
-      <a-entity id="prompt2" prompt="position: -4.5 0 0" position="-5.710 -0.315 0">
-        <a-animation attribute="position" dur="800" from="-5.710 -0.315 0" to="-5.710 0 0" direction="alternate" repeat="indefinite"></a-animation>
-      </a-entity>
-      <a-entity id="prompt3" prompt="position: -4.5 0 0" position="-1.413 0.896 -4.243">
-        <a-animation attribute="position" dur="800" from="-1.413 0.896 -4.243" to="-1.413 1.196 -4.243" direction="alternate" repeat="indefinite"></a-animation>
-      </a-entity>
       
-      <a-entity id="prompt4" prompt="position: -4.5 0 0" position="-1.642 -0.442 -0.512">
-        <a-animation attribute="position" dur="800" from="-1.642 -0.442 -0.512" to="-1.642 -0.142 -0.512" direction="alternate" repeat="indefinite"></a-animation>
-      </a-entity>
+      <a-entity prompt id="scratchPrompt" position="-4.266 -0.265 0"></a-entity>
+      <a-entity prompt id="pythonPrompt" position="-5.710 -0.315 0"></a-entity>
+      <a-entity prompt id="VRPrompt" position="-1.413 0.896 -4.243"></a-entity>
+      <a-entity prompt id="crumblePrompt" position="-1.642 -0.442 -0.512"></a-entity>
+      <a-entity prompt id="legoPrompt" position="-4.458 -0.442 0.917"></a-entity>
+      <a-entity prompt id="printerPrompt" position="-8.299 0.114 2.989"></a-entity>
+      <a-entity prompt id="sketchPrompt" position="-7.206 0.084 3.588"></a-entity>
+      <a-entity prompt id="ccPrompt" position="-5.508 0 4.095"></a-entity>
       
-      <a-entity id="prompt5" prompt="position: -4.5 0 0" position="-4.458 -0.442 0.917">
-        <a-animation attribute="position" dur="800" from="-4.458 -0.442 0.917" to="-4.458 -0.142 0.917" direction="alternate" repeat="indefinite"></a-animation>
-      </a-entity>
+      <a-box id="door" position="-9.642 -0.320 -2.986 " scale="0.510 3.291 4.265" opacity="0.0" class="link" ></a-box>
       
-      <a-entity id="prompt6" prompt="position: -4.5 0 0" position="-8.299 0.114 2.989">
-        <a-animation attribute="position" dur="800" from="-8.299 0.114 2.989" to="-8.299 0.414 2.989" direction="alternate" repeat="indefinite"></a-animation>
-      </a-entity>
-      
-      <a-entity id="prompt7" prompt="position: -4.5 0 0" position="-7.206 0.084 3.588">
-        <a-animation attribute="position" dur="800" from="-7.206 0.084 3.588" to="-7.206 0.384 3.588" direction="alternate" repeat="indefinite"></a-animation>
-      </a-entity>
-      
-      <a-entity id="prompt8" prompt="position: -4.5 0 0" position="-5.508 0 4.095">
-        <a-animation attribute="position" dur="800" from="-5.508 0 4.095" to="-5.508 0.3 4.095" direction="alternate" repeat="indefinite"></a-animation>
-      </a-entity>
-      
-    <a-box id="door" position="-9.642 -0.320 -2.986 " scale="0.510 3.291 4.265" opacity="0.0" class="link" ></a-box>
-      
-<!--    Crumble Kits    -->
-      <a-box id="pos4" position="-2.399 -1.200 0.170" opacity="0.0" scale="1.254 0.502 2.470" class="link" 
-             event-set__enter="_event: mouseenter; _target: #crumbleText; visible: true"
-            event-set__enterb="_event: mouseenter; _target: #box2; visible: true"
-            event-set__entera="_event: mouseenter; _target: #prompt4; visible: false"
-              >
-        <a-box id="box2" position="-0.182 0.942  1" opacity="0.0" scale="1 1 0.5" visible="false"></a-box>
-       <a-box id="crumbleText" height="0.5" color="#27336f" material="side: back" position="-1.118 2.870 0.018" rotation="-3.094 91.616 -0.115" scale="1.837 7.275 0.005" visible="false" text="color: w; anchor: center; align: center;
+      <a-box id="crumbleTrigger" position="-2.399 -1.200 0.170" opacity="0.0" scale="1.254 0.502 2.470" class="link">
+        <a-box id="box2" position="-0.172 0.942 0.032" opacity="0.0" scale="1 1 1.369" visible="false"></a-box>
+        <a-box id="crumbleText" height="0.5" color="#27336f" material="side: back" position="-1.118 2.870 0.018" rotation="-3.094 91.616 -0.115" scale="1.837 7.275 0.005" visible="false" text="color: white; anchor: center; align: center;
               value:    The Crumble is an easy-to-use programmable controller, in the shape of a tiny circuit board. 
                         It has been designed to encourage tinkering, using ‘croc leads’ for quick and simple connections to other components. Then program how your Crumble will work on the Crumble software.
-                        Learn coding and how electronics works!
-                        "></a-box>
+                        Learn coding and how electronics works!">
         </a-box>
+      </a-box>
       
-<!--    LEGO Mindstorms    -->
-      <a-box id="pos5" position="-4 -1.5 -1" rotation="0 0 0" opacity="0.0" scale="1.254 0.502 1.470" class="link"
-             event-set__enter="_event: mouseenter; _target: #legoText; visible: true"
-            event-set__enterb="_event: mouseenter; _target: #box3; visible: true"
-            event-set__entera="_event: mouseenter; _target: #prompt5; visible: false"
-              >
+      <a-box id="legoTrigger" position="-4 -1.5 -1" rotation="0 0 0" opacity="0.0" scale="1.254 0.502 1.470" class="link">
         <a-box id="box3" position="-0.236 1.2 1" opacity="0.0" scale="2.036 1.8 0.463" rotation="1.3750987083139758 -15 -10.714310768946394" visible="false"></a-box>
-       <a-box id="legoText" height="0.5" color="#27336f" material="side: back" position="0.052 3.093 0.166"
+        <a-box id="legoText" height="0.5" color="#27336f" material="side: back" position="0.052 3.093 0.166"
               rotation="0 -17.99087476710785 0" scale="2.665 5.779 0.005" visible="false" text="color: white; anchor: center; align: center;
               value:    LEGO Mindstorms are kits of software and hardware to design customizable, programmable
                         robots that can walk, talk, think and do anything they can imagine.
                         Just follow a guide to assemble the robot you want, and then you can use the 
-                        intuitive drag-and-drop interface to programme their movement.
-                        "></a-box>
+                        intuitive drag-and-drop interface to programme their movement.">
         </a-box>
+      </a-box>
       
-<!--   VR RIG     -->
-      <a-cylinder id="pos1" position="1.4 -0.76 -6.65" opacity="0.0" scale="1 1 3.1" class="link"
-                  event-set__enter="_event: mouseenter; _target: #VRText; visible: true"
-                  event-set__entera="_event: mouseenter; _target: #prompt3; visible: false">
+      <a-cylinder id="VRTrigger" position="1.4 -0.76 -6.65" opacity="0.0" scale="1 1 3.1" class="link">
         <a-box id="VRText" height="0.5" color="#27336f" material="side: back" position="-4.978 0.581 1.288 " rotation="0 -26 0" scale="0.829 1.310 0.005" visible="false" text="color: white; anchor: center; align: center;
-              value:  Virtual Reality is really something that everyone must try, old or young. You can explore the world in Google Earth VR or get to grips with one of the games from Steam VR. There is something to interest everyone. The HTC Vive VR Rig has won awards such as VR Headset of the Year, and linked up to the powerful Predator Gaming PC, this is one of the most immersive experiences you can do!"></a-box>
+              value:  Virtual Reality is really something that everyone must try, old or young. 
+              You can explore the world in Google Earth VR or get to grips with one of the games from Steam VR. 
+              There is something to interest everyone. The HTC Vive VR Rig has won awards such as VR Headset of the Year, 
+              and linked up to the powerful Predator Gaming PC, this is one of the most immersive experiences you can do!">
+        </a-box>
       </a-cylinder>
       
-<!--    Scratch    -->
-      <a-box id="pos2" position="-4.1 -1.2 1" opacity="0.0" scale="1 1 0.5" class="link" 
-                  event-set__enter="_event: mouseenter; _target: #scratchText; visible: true"
-                  event-set__enters="_event: mouseenter; _target: #video1; visible: true"
-                  event-set__enterb="_event: mouseenter; _target: #box; visible: true"
-                  event-set__entera="_event: mouseenter; _target: #prompt1; visible: false"
-                  >
+      <a-box id="scratchTrigger" position="-4.1 -1.2 1" opacity="0.0" scale="1 1 0.5" class="link">
         <a-box id="box" position="-0.182 0.942  1" opacity="0.0" scale="1 1 0.5" visible="false"></a-box>
-       <a-box id="scratchText" height="0.5" color="#27336f" material="side: back" position="0.336 1.048 -2.966" rotation="0 -128 0" scale="1.817 1.468  0.005" visible="false" text="color: white; anchor: center; align: center;
+        <a-box id="scratchText" height="0.5" color="#27336f" material="side: back" position="0.336 1.048 -2.966" rotation="0 -128 0" scale="1.817 1.468  0.005" visible="false" text="color: white; anchor: center; align: center;
               value:   Scratch is a great way for beginners to learn the basics of coding without the complexity of learning the whole language.
                        By dragging and dropping programming blocks, you can program your own: Interactive Stories, Games, Animations, etc.
-                       Learn the reasoning behind programming, work collaboratively and share your designs with people all over the world!"></a-box>
+                       Learn the reasoning behind programming, work collaboratively and share your designs with people all over the world!">
+        </a-box>
         <a-video id="video1" visible="false" src="#scratch" width="8" height="5" rotation="0 165 0" position="-0.897 1.034 -2.378" scale="0.16 0.16 0.005"></a-video>
       </a-box>
       
-<!--    Python game    -->
-      <a-box id="pos3" position="-6.4 -1.2 1" opacity="0.0" scale="1 1 0.5" class="link">
+      <a-box id="pythonTrigger" position="-6.4 -1.2 1" opacity="0.0" scale="1 1 0.5" class="link">
         <a-box id="pythonText" height="0.5" color="#27336f" material="side: back" position="0.909 1.000 -4.417" rotation="0 115 0" scale="2.032 1.421 0.005" visible="false" text="color: white; anchor: center; align: center;
               value:  Python is a multi-purpose programming language that anyone can learn! It’s a great start to understand how to code, with varying levels of complexity. You can use it to process text, numbers, images, scientific data and just about anything else you might save on a computer, the possibilities are endless. Python is even used in NASA for their machinery!"></a-box>
       </a-box>
       
-<!--    3D Printer    -->
-      <a-box id="pos6" position="-12.139 -0.810 3.447" rotation="0 -109.627 0" opacity="0.0" scale="1.254 1.260 1.775" class="link"
-             event-set__enter="_event: mouseenter; _target: #printerText; visible: true"
-            event-set__enterb="_event: mouseenter; _target: #box4; visible: true"
-            event-set__entera="_event: mouseenter; _target: #prompt6; visible: false"
-              >
+      <a-box id="printerTrigger" position="-12.139 -0.810 3.447" rotation="0 -109.627 0" opacity="0.0" scale="1.254 1.260 1.775" class="link">
         <a-box id="box4" position="-0.182 0.942  1" opacity="0.0" scale="1 1 0.5" visible="false"></a-box>
-       <a-box id="printerText" height="0.5" color="#27336f" material="side: back" position="-0.414 2.625 -0.366" rotation="0 -161.861 0" scale="5.427 5.779 0.005" visible="false" text="color: white; anchor: center; align: center;
+        <a-box id="printerText" height="0.5" color="#27336f" material="side: back" position="-0.414 2.625 -0.366" rotation="0 -161.861 0" scale="5.427 5.779 0.005" visible="false" text="color: white; anchor: center; align: center;
               value:    3D Printing is the process of creating a three-dimensional object from a digital file.
-                        Layers of material are formed under computer control and you can see your design created in front of you. Objects can be of (almost) any shape or geometry, so design your model in a Computer Aided Design file and see it come to life!"></a-box>
+                        Layers of material are formed under computer control and you can see your design created in front of you. 
+                        Objects can be of (almost) any shape or geometry, so design your model in a Computer Aided Design file and see it come to life!">
         </a-box>
+      </a-box>
       
-<!--    Sketch Up   -->
-      <a-box id="pos7" position="-10.455 -0.810 5.196" rotation="0 -35.934 0" opacity="0.0" scale="1.338 1.407 1.122" class="link"
-             event-set__enter="_event: mouseenter; _target: #sketchText; visible: true"
-            event-set__enterb="_event: mouseenter; _target: #box5; visible: true"
-            event-set__entera="_event: mouseenter; _target: #prompt7; visible: false"
-              >
-        <a-box id="box5" position="-0.182 0.942  1" opacity="0.0" scale="1 1 0.5" visible="false"></a-box>
+      <a-box id="sketchTrigger" position="-10.455 -0.810 5.196" rotation="0 -35.934 0" opacity="0.0" scale="1.338 1.407 1.122" class="link">
+      <a-box id="box5" position="-0.182 0.942  1" opacity="0.0" scale="1 1 0.5" visible="false"></a-box>
        <a-box id="sketchText" height="0.5" color="#27336f" material="side: back" position="-0.414  2.232 -0.366" rotation="0 147.365 0" scale="5.427 5.779 0.005" visible="false" text="color: white; anchor: center; align: center;
               value:    SketchUp is the easiest way to draw in 3D.
                         The 3D Modelling Software is the choice of people in many professions, such as Architecture, Engineering, Video Game Design and so many more.
-                        Model anything you want from scratch, or choose from the 3D Warehouse to put together your project. The possibilities are endless!
-      "></a-box>
+                        Model anything you want from scratch, or choose from the 3D Warehouse to put together your project. The possibilities are endless!">
         </a-box>
+      </a-box>
       
-<!--    Creative Cloud   -->
-      <a-box id="pos8" position="-6.141 -0.810 5.904" rotation="0 -23.835 0" opacity="0.0" scale="3.166 1.407 1.122" class="link"
-             event-set__enter="_event: mouseenter; _target: #ccText; visible: true"
-            event-set__enterb="_event: mouseenter; _target: #box6; visible: true"
-            event-set__entera="_event: mouseenter; _target: #prompt8; visible: false"
-              >
+      <a-box id="ccTrigger" position="-6.141 -0.810 5.904" rotation="0 -23.835 0" opacity="0.0" scale="3.166 1.407 1.122" class="link">
         <a-box id="box6" position="-0.182 0.942  1" opacity="0.0" scale="1 1 0.5" visible="false"></a-box>
-       <a-box id="ccText" height="0.5" color="#27336f" material="side: back" position="0.018 1.225 -0.800" rotation="0 -173.091 0" scale="1.134 2.686 0.005" visible="false" text="color: white; anchor: center; align: center;
-              value:    The world-class design tools in Creative Cloud give you everything you need to make anything you can dream up. Design logos, posters, brochures, ads...
+        <a-box id="ccText" height="0.5" color="#27336f" material="side: back" position="0.018 1.225 -0.800" rotation="0 -173.091 0" scale="1.134 2.686 0.005" visible="false" text="color: white; anchor: center; align: center;
+              value:    The world-class design tools in Creative Cloud give you everything you need to make anything you can dream up. 
+                        Design logos, posters, brochures, ads...
                         Or you could use the UX Design tools to design and prototype website or mobile apps.
-                        You can also get to grips with Photoshop and learn to use the world’s best photography tools. Get Creative! 
-      "></a-box>
+                        You can also get to grips with Photoshop and learn to use the world’s best photography tools. Get Creative!">
         </a-box>
-     
+      </a-box>
       
       <!-- Camera + cursor. -->
       <a-entity id="camera" class="camera" rotation="0 90 0">
         <a-entity id="cam" camera="active:true; userHeight: 0" look-controls="" position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="true">
-        <a-cursor
+        <a-cursor id="cursor" material="depthTest: false"
           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
           animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
           event-set__1="_event: mouseenter; color: springgreen"
@@ -314,40 +253,28 @@
     </a-scene>
     
     <script>
-    var eventLstner = function (event) {
-      var v = document.querySelector('#makery1');// + document.querySelector('#vid').getAttribute('material').src.id);
-      v.play();
-      var child = document.getElementById("p1");
-      if(child !== null){
-        child.parentNode.removeChild(child);        
-      }
-    };
-    // window.addEventListener('click', eventLstner);
-    </script>
-    
-    <script>
     function myFunction() {
-    var x = document.getElementById("clicking")
-    var clicking= document.getElementById("teleport");
-    var y = document.getElementById("Arrow");
-    var z = document.getElementById("beginButton");
-    var a = document.getElementById("nextButton");
-    var option = document.getElementById("options");
-    var intro = document.getElementById("intro");
-    if (clicking.style.display !== "none") {
-        clicking.style.display = "none";
-        x.style.display = "block";
-        intro.style.display = "none"
-    }else if (x.style.display !== "none") {
-        x.style.display = "none";
-        y.style.display = "block";
-    }else if (y.style.display !== "none") {
-        y.style.display = "none";   
-        option.style.display="none";
-        z.style.display="block";
+        var x = document.getElementById("clicking")
+        var clicking= document.getElementById("teleport");
+        var y = document.getElementById("Arrow");
+        var z = document.getElementById("beginButton");
+        var a = document.getElementById("nextButton");
+        var option = document.getElementById("options");
+        var intro = document.getElementById("intro");
+        if (clicking.style.display !== "none") {
+            clicking.style.display = "none";
+            x.style.display = "block";
+            intro.style.display = "none"
+        }else if (x.style.display !== "none") {
+            x.style.display = "none";
+            y.style.display = "block";
+        }else if (y.style.display !== "none") {
+            y.style.display = "none";   
+            option.style.display="none";
+            z.style.display="block";
+        }
+        scroll(0,0);
     }
-    scroll(0,0);
-};
     </script>
   </body>
 </html>
